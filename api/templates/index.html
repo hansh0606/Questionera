@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Interview App</title>
+</head>
+<body>
+    <h1>Resume Interview App</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if keywords %}
+        <h2>Keywords extracted from the resume:</h2>
+        <ul>
+            {% for keyword in keywords %}
+                <li>{{ keyword }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if questions %}
+        <h2>Interview Questions:</h2>
+        <p>{{ questions }}</p>
+    {% endif %}
+</body>
+</html>
